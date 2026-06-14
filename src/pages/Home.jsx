@@ -64,7 +64,7 @@ export default function Home() {
 							<Card className="product-card h-100 shadow-sm">
 								<Card.Img
 									 variant="top"
-									 src={produto.imagem ? `http://localhost:5001/uploads/${produto.imagem}` : 'https://via.placeholder.com/300x280?text=Sem+Imagem'}
+									 src={`${import.meta.env.VITE_API_URL}/uploads/${perfume.imagem}`}
 									 style={{ height: '260px', objectFit: 'cover' }}
 								/>
 								<Card.Body className="s-flex flex-column">
