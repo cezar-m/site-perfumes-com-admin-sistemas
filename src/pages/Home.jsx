@@ -63,9 +63,13 @@ export default function Home() {
 						<Col key={produto.id}>
 							<Card className="product-card h-100 shadow-sm">
 								<Card.Img
-									 variant="top"
-									 src={`${import.meta.env.VITE_API_URL}/uploads/${perfume.imagem}`}
-									 style={{ height: '260px', objectFit: 'cover' }}
+								  variant="top"
+								  src={
+									produto.imagem
+									  ? `${import.meta.env.VITE_API_URL}/uploads/${produto.imagem}`
+									  : 'https://via.placeholder.com/400'
+								  }
+								  style={{ height: '260px', objectFit: 'cover' }}
 								/>
 								<Card.Body className="s-flex flex-column">
 									<Card.Title className="product-title">{produto.nome}</Card.Title>
