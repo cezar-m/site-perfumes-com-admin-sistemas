@@ -3,6 +3,7 @@ import { Card, Button, Badge } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { ClienteAuthContext } from '../contexts/ClienteAuthContext';
 import { useCarrinho } from '../contexts/CarrinhoContext';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function ProdutoCard({ perfume, onVerDetalhes }) {
   const { cliente } = useContext(ClienteAuthContext);
@@ -33,7 +34,11 @@ export default function ProdutoCard({ perfume, onVerDetalhes }) {
       <Card className="h-100 shadow-sm card-hover-effect">
         <Card.Img
           variant="top"
-          src={perfume.imagem ? `http://localhost:5001/uploads/${perfume.imagem}` : 'https://picsum.photos/300/280?random=1'}
+           src={
+              perfume.imagem
+              ? `${API_URL}/uploads/${perfume.imagem}`
+              : 'https://picsum.photos/300/280?random=1'
+            }
           style={{ height: '220px', objectFit: 'cover' }}
         />
         <Card.Body className="d-flex flex-column">
