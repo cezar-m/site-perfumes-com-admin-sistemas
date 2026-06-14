@@ -102,10 +102,14 @@ export default function Home() {
 					{selectedProduto && (
 						<Row>
 							<Col md={6}>
-								<Image 
-									src={selectedProduto.imagem ? `http://localhost:5001/uploads/${selectedProduto.imagem}` : 'https://via.placeholder.com/400'}
-									fluid
-									className="roundend"
+								<Image
+  									src={
+    									selectedProduto.imagem
+      									? `${import.meta.env.VITE_API_URL}/uploads/${selectedProduto.imagem}`
+      									: 'https://via.placeholder.com/400'
+  										}
+  									fluid
+  									className="rounded"
 								/>
 							</Col>
 							<Col md={6}>
