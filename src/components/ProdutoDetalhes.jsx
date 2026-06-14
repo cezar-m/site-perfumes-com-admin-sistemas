@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Image, Button, Spinner, Alert } from 'react-bootstrap';
 import api from '../services/api';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function ProdutoDetalhes() {
 	const { id } = useParams();
@@ -38,7 +39,11 @@ export default function ProdutoDetalhes() {
 			<Row>
 				<Col md={6}>
 					<Image
-						src={perfume.imagem ? `http://localhost:5001/uploads/${perfume.imagem}` : 'https://via.placeholder.com/500'}
+						 src={
+    						perfume.imagem
+      							? `${API_URL}/uploads/${perfume.imagem}`
+      							: 'https://via.placeholder.com/500'
+  							}
 						fluid
 						className="detail-img"
 					/>
